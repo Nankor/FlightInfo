@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">{{panelTitle}}</div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                    <input type="text" class="form-control" placeholder="Search Flight" ng-model="searchFlight">
+                </div>
+            </div>
+        </form>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th ng-repeat="tableh in tableHeaders">
+                    <!--<a ng-click="$parent.sortType = tableh; $parent.sortReverse = !$parent.sortReverse">{{tableh}}</a>-->
+                    <a ng-click="onTableHeaderClick($parent, tableh)">{{tableh}}</a>
+                    <span ng-show="$parent.sortType === tableh && !$parent.sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="$parent.sortType === tableh && $parent.sortReverse" class="fa fa-caret-up"></span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="flight in flightDetails | orderBy:sortType:sortReverse | filter:searchFlight">
+                <td ng-repeat="tableh in tableHeaders">{{flight[tableh]}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

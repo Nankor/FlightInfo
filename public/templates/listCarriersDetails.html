@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Select a Flight Detail</div>
+    <div class="panel-body">
+        <div class="list-group">
+            <a class="list-group-item active" href="#/viewCarriers/{{carrier}}/allFlights">All Flights</a>
+            <a class="list-group-item" ng-repeat="carrierDetail in carriersDetails"
+               href="#/viewCarriers/{{carrier}}/{{carrierDetail}}">{{carrierDetail}}</a>
+        </div>
+    </div>
+</div>
